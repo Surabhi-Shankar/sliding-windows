@@ -1,0 +1,29 @@
+import java.util.*;
+public class Main{
+    public static void main(String args[]){
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int k = sc.nextInt();
+        int[] h = new int[n];
+        long cs = 0;
+        long ms = 0;
+        int mi = 1;
+        for(int i = 0 ; i < n; i++){
+            h[i] = sc.nextInt();
+        }
+        for(int i = 0; i < k ; i++){
+            cs += h[i];
+        }
+        ms = cs;
+        for(int i = k; i < n;i++){
+            cs = cs + h[i] - h[i - k];
+            if(cs < ms){
+                ms = cs;
+                mi = i - k + 2;
+            }
+        }
+        System.out.println(mi);
+        
+    }
+    
+}
